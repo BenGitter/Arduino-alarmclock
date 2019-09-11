@@ -110,7 +110,7 @@ void tryServerTime()
     {
         Serial.println("Connected to server");
         // Make a HTTP request
-        client.println("GET / HTTP/1.1");
+        client.println("GET /time HTTP/1.1");
         client.println("Host: 192.168.178.24");
         client.println("Cache-Control: no-cache");
         client.println("Connection: close");
@@ -131,16 +131,16 @@ void tryServerTime()
         msg += c;
     }
 
-    int startPosHour = msg.indexOf("<hour>") + 6;
-    int endPosHour = msg.indexOf("</hour>", startPosHour);
-    int startPosMinute = msg.indexOf("<minute>") + 8;
-    int endPosMinute = msg.indexOf("</minute>", startPosMinute);
+    int startPosHours = msg.indexOf("<hours>") + 7;
+    int endPosHours = msg.indexOf("</hours>", startPosHours);
+    int startPosMinutes = msg.indexOf("<minutes>") + 9;
+    int endPosMinutes = msg.indexOf("</minutes>", startPosMinutes);
 
-    int hour = msg.substring(startPosHour, endPosHour).toInt();
-    int minute = msg.substring(startPosMinute, endPosMinute).toInt();
-    Serial.println(hour);
-    Serial.println(minute);
-    alarmClock.setTime(hour, minute);
+    int hours = msg.substring(startPosHours, endPosHours).toInt();
+    int minutes = msg.substring(startPosMinutes, endPosMinutes).toInt();
+    Serial.println(hours);
+    Serial.println(minutes);
+    alarmClock.setTime(hours, minutes);
 }
 
 //void printWifiStatus()

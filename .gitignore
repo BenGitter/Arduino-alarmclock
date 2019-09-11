@@ -1,2 +1,3 @@
 arduino-build/
 .vscode/
+server/node_modules/
