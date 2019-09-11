@@ -61,6 +61,6 @@ app.post('/api/alarm', bodyParser.json(), (req, res) => {
   res.json({ msg: 'Values set', alarm });
 });
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log('App started on port 3000');
 });

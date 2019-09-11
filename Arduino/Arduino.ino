@@ -106,7 +106,7 @@ void tryServerTime()
     Serial.println();
     Serial.println("Starting connection to server...");
     // if you get a connection, report back via serial
-    if (client.connect(server, 3000))
+    if (client.connect(server, 3001))
     {
         Serial.println("Connected to server");
         // Make a HTTP request
