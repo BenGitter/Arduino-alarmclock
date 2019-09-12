@@ -1,11 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
+app.use(cors());
+
 // AlarmClock variable
 const alarm = {
-  active: true,
+  active: false,
   hours: 0,
   minutes: 0,
 };
@@ -37,7 +40,7 @@ app.post('/api/alarm', bodyParser.json(), (req, res) => {
   if (typeof req.body.active != 'undefined') {
     alarm.active = Boolean(req.body.active);
   }
-  if (req.body.hours) {
+  if (typeof req.body.hours != 'undefined') {
     if (req.body.hours >= 0 && req.body.hours <= 23) {
       alarm.hours = req.body.hours;
     } else {
@@ -47,7 +50,7 @@ app.post('/api/alarm', bodyParser.json(), (req, res) => {
       });
     }
   }
-  if (req.body.minutes) {
+  if (typeof req.body.minutes != 'undefined') {
     if (req.body.minutes >= 0 && req.body.minutes <= 59) {
       alarm.minutes = req.body.minutes;
     } else {
@@ -62,5 +65,5 @@ app.post('/api/alarm', bodyParser.json(), (req, res) => {
 });
 
 app.listen(3001, () => {
-  console.log('App started on port 3000');
+  console.log('App started on port 3001');
 });

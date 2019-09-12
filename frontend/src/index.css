@@ -1,13 +1,43 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #49599a;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.AppBar {
+  padding: 5px 20px 5px 50px;
+}
+
+.MuiSvgIcon-fontSizeLarge {
+  font-size: 100px !important;
+  color: white;
+  position: absolute;
+  top: calc(50vh - 90px);
+  left: calc(50vw - 50px);
+}
+.ErrorText {
+  position: absolute;
+  width: 100vw;
+  color: white;
+  text-align: center;
+  top: calc(50vh);
+}
+
+.Form {
+  max-width: 400px;
+  width: calc(90vw - 10px);
+  height: 190px;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 30px;
+  margin-top: calc(50vh - 100px);
 }
